@@ -1,3 +1,20 @@
+ Calculator-by-zoha
+def add(a, b):
+    return a + b
+    
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        print("Error: Cannot divide by zero.")
+        return None
+    return a / b
+
+ main
 def log_operation(operation, a, b, result):
     with open("log.txt", "a") as file:
         file.write(f"{a} {operation} {b} = {result}\n")
@@ -33,6 +50,32 @@ def calculator():
         func = multiply
     elif choice == '4':
         operation = '/'
+Calculator-by-zoha
+        func = divide
+
+
+
+    enable_logging = input("Do you want to enable logging? (yes/no): ").strip().lower()
+    logging_enabled = enable_logging in ['yes', 'y']
+while True:
+        try:
+            a = float(input("\nEnter first number (or type 'exit' to quit): "))
+            b = float(input("Enter second number: "))
+        except ValueError:
+            print("Exiting calculator.")
+            break
+
+        result = func(a, b)
+        if result is None:
+            continue
+
+        print(f"Result: {result}")
+
+        if logging_enabled:
+            log_operation(operation, a, b, result)
+            print("Operation logged.")
+
+calculator
         func = dividedef add(a, b):
     return a + b
 
@@ -47,3 +90,4 @@ def divide(a, b):
         print("Error: Cannot divide by zero.")
         return None
     return a / b
+ main
