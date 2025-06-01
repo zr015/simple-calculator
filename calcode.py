@@ -45,4 +45,23 @@ def calculator():
 
     enable_logging = input("Do you want to enable logging? (yes/no): ").strip().lower()
     logging_enabled = enable_logging in ['yes', 'y']
+while True:
+        try:
+            a = float(input("\nEnter first number (or type 'exit' to quit): "))
+            b = float(input("Enter second number: "))
+        except ValueError:
+            print("Exiting calculator.")
+            break
 
+        result = func(a, b)
+        if result is None:
+            continue
+
+        print(f"Result: {result}")
+
+        if logging_enabled:
+            log_operation(operation, a, b, result)
+            print("Operation logged.")
+
+
+calculator()
